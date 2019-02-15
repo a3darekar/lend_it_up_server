@@ -43,13 +43,18 @@ INSTALLED_APPS = [
 	'profiles',
 
 	'phonenumber_field',
+	'taggit',
 	'rest_framework',
 	'rest_auth',
 	'rest_framework.authtoken',  # only if you use token authentication
 	'rest_auth.registration',
 	'allauth',
+	'allauth.account',
+	'allauth.socialaccount',
 	'corsheaders'
 ]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 SITE_ID = 1
 
