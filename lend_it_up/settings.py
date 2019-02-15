@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 	'phonenumber_field',
 	'taggit',
+	'taggit_serializer',
 	'rest_framework',
 	'rest_auth',
 	'rest_framework.authtoken',  # only if you use token authentication
@@ -81,8 +82,8 @@ REST_FRAMEWORK = {
 		'rest_framework.authentication.TokenAuthentication',
 	),
 	'DATETIME_FORMAT': "%d-%m-%Y %H:%M",
-	'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-	'PAGE_SIZE': 3
+	# 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+	# 'PAGE_SIZE': 3
 }
 
 ROOT_URLCONF = 'lend_it_up.urls'

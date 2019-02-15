@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from profiles.models import Profile
 # Create your models here.
 class Category(models.Model):
 	"""
@@ -12,6 +13,12 @@ class Category(models.Model):
 	class Meta:
 		verbose_name='Category'
 		verbose_name_plural='Categories'
+
+	def __str__(self):
+		return self.name
+
+	def __unicode__(self):
+		return self.name
 
 class Product(models.Model):
 	"""
@@ -26,11 +33,29 @@ class Product(models.Model):
 	lendingPrice 	= models.PositiveIntegerField(default=0)
 	validity		= models.PositiveIntegerField(default=1, help_text='Validity in Months')
 
-	rating 			= models.DecimalField(max_digits=3, decimal_places=2)
+	rating 			= models.DecimalField(max_digits=3, decimal_places=2, blank=True, default=0)
 	tags 			= TaggableManager()
 	available	 	= models.BooleanField(default=True)
 	reportedCount	= models.PositiveIntegerField(default=0)
 	spam			= models.BooleanField(default=False)
 
 	class Meta:
-		pass
+		verbose_name='Category'
+		verbose_name_plural='Categories'
+
+	def __str__(self):
+		return self.title
+
+	def __unicode__(self):
+		return self.title
+
+class Request(models.Model):
+    """
+    Description: Buyer Requests
+    """
+    interestedBuyer = models.ForeignKey(Profile, on_delete='CASCADE')
+    status			= models.CharField(max_length=10)
+
+
+    class Meta:
+        pass

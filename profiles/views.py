@@ -3,11 +3,13 @@ from .serializers import ProfileSerializer
 from rest_framework import viewsets
 from rest_framework.routers import DefaultRouter
 from .models import Profile
+from rest_framework.decorators import detail_route
 # Create your views here.
 
 class ProfileViewSet(viewsets.ModelViewSet):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
+	queryset = Profile.objects.all()
+	serializer_class = ProfileSerializer
+
 
 # REST framework Router 
 router = DefaultRouter() 
