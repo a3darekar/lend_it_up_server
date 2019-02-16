@@ -68,6 +68,8 @@ MIDDLEWARE = [
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	'corsheaders.middleware.CorsMiddleware',
+	'django_currentuser.middleware.ThreadLocalUserMiddleware',
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -105,7 +107,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lend_it_up.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
